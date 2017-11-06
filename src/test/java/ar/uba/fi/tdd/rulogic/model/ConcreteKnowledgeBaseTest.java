@@ -1,27 +1,35 @@
 package ar.uba.fi.tdd.rulogic.model;
 
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.Mockito.*;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 
+import ar.uba.fi.tdd.rulogic.model.abstractions.KnowledgeLine;
 import ar.uba.fi.tdd.rulogic.model.implementations.ConcreteKnowledgeBase;
 
 public class ConcreteKnowledgeBaseTest {
-
-	@InjectMocks
+	
+	private KnowledgeLine mockedLine = mock(KnowledgeLine.class);
+	
 	private ConcreteKnowledgeBase knowledgeBase;
 
 	@Before
 	public void setUp() throws Exception {
-		initMocks(this);
+		knowledgeBase = new ConcreteKnowledgeBase();
+		when(mockedLine.tryAnswer("varon (javier).")).thenReturn(true);
 	}
 
 	@Test
-	public void test() {
+	public void queryWithoutAddingKnowledgeLineShouldBeFalse() {
 		Assert.assertFalse(this.knowledgeBase.answer("varon (javier)."));
 	}
+	
+	@Test
+	public void queryAddingKnowledgeLineShouldBeTrue() {
+		this.knowledgeBase.addKnowledgeLine(mockedLine);
+		Assert.assertTrue(this.knowledgeBase.answer("varon (javier)."));
+	}	
 
 }
