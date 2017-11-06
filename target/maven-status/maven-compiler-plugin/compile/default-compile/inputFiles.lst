@@ -1,2 +1,6 @@
-/home/anibal/workspace/java/rulogic/src/main/java/ar/uba/fi/tdd/rulogic/model/KnowledgeBase.java
-/home/anibal/workspace/java/rulogic/src/main/java/ar/uba/fi/tdd/rulogic/App.java
+/home/buengabacho/git/7510-TP1-Java/src/main/java/ar/uba/fi/tdd/rulogic/model/abstractions/KnowledgeBase.java
+/home/buengabacho/git/7510-TP1-Java/src/main/java/ar/uba/fi/tdd/rulogic/model/implementations/ConcreteKnowledgeBase.java
+/home/buengabacho/git/7510-TP1-Java/src/main/java/ar/uba/fi/tdd/rulogic/model/implementations/Fact.java
+/home/buengabacho/git/7510-TP1-Java/src/main/java/ar/uba/fi/tdd/rulogic/model/implementations/Rule.java
+/home/buengabacho/git/7510-TP1-Java/src/main/java/ar/uba/fi/tdd/rulogic/App.java
+/home/buengabacho/git/7510-TP1-Java/src/main/java/ar/uba/fi/tdd/rulogic/model/abstractions/KnowledgeLine.java

@@ -1,2 +1,6 @@
-ar/uba/fi/tdd/rulogic/model/KnowledgeBase.class
+ar/uba/fi/tdd/rulogic/model/abstractions/KnowledgeBase.class
 ar/uba/fi/tdd/rulogic/App.class
+ar/uba/fi/tdd/rulogic/model/implementations/ConcreteKnowledgeBase.class
+ar/uba/fi/tdd/rulogic/model/implementations/Fact.class
+ar/uba/fi/tdd/rulogic/model/abstractions/KnowledgeLine.class
+ar/uba/fi/tdd/rulogic/model/implementations/Rule.class

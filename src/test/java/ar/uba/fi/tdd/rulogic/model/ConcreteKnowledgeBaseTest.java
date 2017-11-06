@@ -7,10 +7,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 
-public class KnowledgeBaseTest {
+import ar.uba.fi.tdd.rulogic.model.implementations.ConcreteKnowledgeBase;
+
+public class ConcreteKnowledgeBaseTest {
 
 	@InjectMocks
-	private KnowledgeBase knowledgeBase;
+	private ConcreteKnowledgeBase knowledgeBase;
 
 	@Before
 	public void setUp() throws Exception {
@@ -19,9 +21,7 @@ public class KnowledgeBaseTest {
 
 	@Test
 	public void test() {
-
-		Assert.assertTrue(this.knowledgeBase.answer("varon (javier)."));
-
+		Assert.assertFalse(this.knowledgeBase.answer("varon (javier)."));
 	}
 
 }
