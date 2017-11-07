@@ -11,15 +11,15 @@ import ar.uba.fi.tdd.rulogic.model.implementations.ConcreteKnowledgeBase;
 
 public class ConcreteKnowledgeBaseTest {
 	
-	private KnowledgeLine mockedLine = mock(KnowledgeLine.class);
-	
+	private KnowledgeLine mockedLine;	
 	private ConcreteKnowledgeBase knowledgeBase;
-
+	
 	@Before
-	public void setUp() throws Exception {
+	public void setUpTest() throws Exception {
 		knowledgeBase = new ConcreteKnowledgeBase();
-		when(mockedLine.tryAnswer("varon (javier).")).thenReturn(true);
-	}
+		mockedLine = mock(KnowledgeLine.class);
+		when(mockedLine.tryAnswer("varon (javier).")).thenReturn(true);		
+	}	
 
 	@Test
 	public void queryWithoutAddingKnowledgeLineShouldBeFalse() {
@@ -31,5 +31,11 @@ public class ConcreteKnowledgeBaseTest {
 		this.knowledgeBase.addKnowledgeLine(mockedLine);
 		Assert.assertTrue(this.knowledgeBase.answer("varon (javier)."));
 	}	
+	
+	@Test
+	public void differentQueryAddingKnowledgeLineShouldBeFalse() {
+		this.knowledgeBase.addKnowledgeLine(mockedLine);
+		Assert.assertFalse(this.knowledgeBase.answer("varon (laura)."));
+	}		
 
 }
