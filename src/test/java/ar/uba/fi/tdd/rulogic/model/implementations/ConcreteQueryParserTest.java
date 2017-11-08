@@ -13,7 +13,7 @@ import ar.uba.fi.tdd.rulogic.model.abstractions.QueryParser;
 
 public class ConcreteQueryParserTest {
 	
-	private QueryParser queryParser = new ConcreteQueryParser();
+	private QueryParser queryParser;
 	
 	@Before
 	public void setUpTest() throws Exception {

@@ -18,7 +18,9 @@ public class Fact implements KnowledgeLine {
 
 	@Override
 	public boolean tryAnswer(Query query, KnowledgeBase knowledgeBase) {
-		return false;
+		boolean isSameName = query.name().equals(this.name);
+		boolean isSameArguments = query.arguments().equals(this.arguments);
+		return isSameName && isSameArguments;
 	}
 
 }
