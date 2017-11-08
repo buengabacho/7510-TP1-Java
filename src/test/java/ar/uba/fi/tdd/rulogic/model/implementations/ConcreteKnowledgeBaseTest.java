@@ -1,4 +1,4 @@
-package ar.uba.fi.tdd.rulogic.model;
+package ar.uba.fi.tdd.rulogic.model.implementations;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -23,7 +23,6 @@ public class ConcreteKnowledgeBaseTest {
 	
 	@Before
 	public void setUpTest() throws Exception {
-		
 		mockedParser = mock(QueryParser.class);
 		mockedQueryJavier = mock(Query.class);
 		mockedQueryLaura = mock(Query.class);
@@ -51,7 +50,7 @@ public class ConcreteKnowledgeBaseTest {
 			Assert.assertTrue(this.knowledgeBase.answer("varon (javier)."));
 		} catch (Exception e) {
 			fail("Unexpected exception thrown: " + e.getMessage());
-		}		
+		}
 	}
 	
 	@Test

@@ -18,8 +18,13 @@ public class ConcreteQueryParser implements QueryParser {
 		String queryName;
 		List<String> queryArguments = new ArrayList<String>();
 		if (m.find()) {
-			queryName = m.group(1);
-			Arrays.asList(m.group(2).split(",")).stream().map(x -> x.trim()).forEach(queryArguments::add);
+			queryName = m.group(1).trim();
+			Arrays.asList(m.group(2)
+					.split(","))
+					.stream()
+					.map(x -> x.trim())
+					.filter(x -> x.length() > 0)
+					.forEach(queryArguments::add);
 			return new Query(queryName, queryArguments);
 		} else {
 			throw new Exception("Malformed query");
