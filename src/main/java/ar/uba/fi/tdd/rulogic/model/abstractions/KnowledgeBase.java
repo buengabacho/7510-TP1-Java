@@ -4,6 +4,6 @@ public interface KnowledgeBase {
 	
 	public void addKnowledgeLine(KnowledgeLine line);
 
-	public boolean answer(String query) throws Exception;
+	public boolean answer(String query) throws MalformedQueryException;
 
 }
