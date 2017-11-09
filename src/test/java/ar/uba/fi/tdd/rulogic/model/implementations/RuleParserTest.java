@@ -41,6 +41,12 @@ public class RuleParserTest {
 		KnowledgeLine parsedRule = this.ruleParser.tryHandle("hombre (x) : varonx).");
 		assertNull(parsedRule);
 	}
+	
+	@Test
+	public void tryToParseFactShouldReturnNull() {
+		KnowledgeLine parsedRule = this.ruleParser.tryHandle("varon(javier).");
+		assertNull(parsedRule);
+	}
 
 	private void tryAnswerQuery(String ruleString, String queryName, List<String> queryArgs) {
 		Query query = mock(Query.class);
@@ -64,6 +70,6 @@ public class RuleParserTest {
 	@Test
 	public void correctRuleWithMultipleArguments() {
 		tryAnswerQuery("padre(x, y) :- varon(x), hijo(y, x).", "padre", Arrays.asList("javier", "jose"));
-	}
+	}	
 	
 }

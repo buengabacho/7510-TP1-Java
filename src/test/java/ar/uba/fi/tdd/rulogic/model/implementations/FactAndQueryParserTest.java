@@ -74,6 +74,12 @@ public class FactAndQueryParserTest {
 		KnowledgeLine parsedFact = this.factAndQueryParser.tryHandle("varonjavier).");
 		assertNull(parsedFact);
 	}
+
+	@Test
+	public void tryToParseRuleShouldReturnNull() {
+		KnowledgeLine parsedFact = this.factAndQueryParser.tryHandle("padre(x, y) :- varon(x), hijo(y, x).");
+		assertNull(parsedFact);
+	}
 	
 	private void tryAnswerQuery(String factString, String queryName, List<String> queryArgs) {
 		Query query = mock(Query.class);
@@ -98,5 +104,4 @@ public class FactAndQueryParserTest {
 	public void correctFactWithMultipleArguments() {
 		tryAnswerQuery("varon(javier, roberto).", "varon", Arrays.asList("javier", "roberto"));
 	}
-
 }

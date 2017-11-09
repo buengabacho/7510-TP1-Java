@@ -31,7 +31,7 @@ public class RuleParser extends DbLineParsingChain {
 					.map(x -> x.trim())
 					.filter(x -> x.length() > 0)
 					.forEach(arguments::add);
-			Arrays.asList(m.group(3).split("(,\\s*(?=[^\\(]*\\([^\\)]*\\)))"))
+			Arrays.asList(m.group(3).split("(,\\s*(?=[^\\(\\)]*\\([^\\)]*\\)))"))
 					.stream()
 					.map(x -> x.trim().replaceAll("\\.$", ""))
 					.filter(x -> x.length() > 0)

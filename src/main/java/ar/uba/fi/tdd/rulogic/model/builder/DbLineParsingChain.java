@@ -17,8 +17,8 @@ public abstract class DbLineParsingChain {
 		if (result != null) {
 			return result;
 		}
-		if (next != null) {
-			this.next.parseLine(lineNumber, line);
+		if (this.next != null) {
+			return this.next.parseLine(lineNumber, line);
 		}
 		throw new UnknownLineFormatException(lineNumber, line); 
 	}
