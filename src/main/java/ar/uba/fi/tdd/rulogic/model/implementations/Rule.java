@@ -22,8 +22,8 @@ public class Rule implements KnowledgeLine {
 		int idx = 0;
 		String instanciatedSubquery = subquery;
 		for (String argument : this.arguments) {
-			instanciatedSubquery = instanciatedSubquery.replaceAll("(?<=[\\(,]) *" + argument + " *(?=[\\),])", query.arguments().get(idx));
-			System.out.println("replacement: " + instanciatedSubquery);
+			String regex = "(?<=[\\(,]) *" + argument + " *(?=[\\),])";
+			instanciatedSubquery = instanciatedSubquery.replaceAll(regex, query.arguments().get(idx));
 			idx++;				
 		}
 		return instanciatedSubquery;

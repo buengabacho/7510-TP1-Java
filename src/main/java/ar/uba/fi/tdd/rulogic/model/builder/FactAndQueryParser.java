@@ -23,13 +23,12 @@ public class FactAndQueryParser extends DbLineParsingChain implements QueryParse
 		this.arguments = new ArrayList<String>();
 		if (m.find()) {
 			this.name = m.group(1).trim();
-			Arrays.asList(m.group(2)
-					.split(","))
+			Arrays.asList(m.group(2).split(","))
 					.stream()
 					.map(x -> x.trim())
 					.filter(x -> x.length() > 0)
 					.forEach(this.arguments::add);
-		}		
+		}	
 	}
 	
 	@Override
@@ -55,6 +54,15 @@ public class FactAndQueryParser extends DbLineParsingChain implements QueryParse
 			return newQuery;			
 		} 
 		throw new MalformedQueryException();
+	}
+
+	@Override
+	public Query safeParseQuery(String query) {
+		try {
+			return this.parseQuery(query);
+		} catch (MalformedQueryException e) {
+			return null;
+		}
 	}
 
 }

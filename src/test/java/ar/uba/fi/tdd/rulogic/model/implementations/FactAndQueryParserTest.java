@@ -80,7 +80,7 @@ public class FactAndQueryParserTest {
 		when(query.name()).thenReturn(queryName);
 		when(query.arguments()).thenReturn(queryArgs);		
 		KnowledgeLine parsedFact = this.factAndQueryParser.tryHandle(factString);
-		boolean answer = parsedFact .tryAnswer(query, knowledgeBase);
+		boolean answer = parsedFact.tryAnswer(query, knowledgeBase);
 		assertThat(answer, is(true));		
 	}	
 	

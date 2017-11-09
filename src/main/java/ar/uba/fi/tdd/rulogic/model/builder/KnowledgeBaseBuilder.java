@@ -15,7 +15,7 @@ public class KnowledgeBaseBuilder {
 	
 	public KnowledgeBaseBuilder() {
 		DbLineParsingChain factParser = new FactAndQueryParser();
-		DbLineParsingChain ruleParser = new RuleParser();
+		DbLineParsingChain ruleParser = new RuleParser((QueryParser)factParser);
 		factParser.setNext(ruleParser);
 		dbLineParsingChain = factParser;
 	}

@@ -4,4 +4,6 @@ public interface QueryParser {
 	
 	public Query parseQuery(String query) throws MalformedQueryException;
 
+	public Query safeParseQuery(String query);
+
 }
