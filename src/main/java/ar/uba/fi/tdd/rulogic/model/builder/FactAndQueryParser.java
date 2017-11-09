@@ -18,7 +18,7 @@ public class FactAndQueryParser extends DbLineParsingChain implements QueryParse
 	private List<String> arguments;
 	
 	private void extractNameAndAttributes(String line) {
-		Pattern p = Pattern.compile("^(.*)\\((.*)\\).?$");
+		Pattern p = Pattern.compile("^(.*)\\((.*)\\)\\s*.?$");
 		Matcher m = p.matcher(line);
 		this.arguments = new ArrayList<String>();
 		if (m.find()) {

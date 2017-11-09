@@ -57,12 +57,12 @@ public class RuleParserTest {
 	}
 	
 	@Test
-	public void correctFactWithOneArgument() {
+	public void correcRuleWithOneArgument() {
 		tryAnswerQuery("hombre(x) :- varon(x).", "hombre", Arrays.asList("javier"));
 	}
 	
 	@Test
-	public void correctFactWithMultipleArguments() {
+	public void correctRuleWithMultipleArguments() {
 		tryAnswerQuery("padre(x, y) :- varon(x), hijo(y, x).", "padre", Arrays.asList("javier", "jose"));
 	}
 	

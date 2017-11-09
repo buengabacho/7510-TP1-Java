@@ -12,15 +12,15 @@ public abstract class DbLineParsingChain {
 	
 	protected abstract KnowledgeLine tryHandle(String line); 
 
-	public final KnowledgeLine parseLine(String line) throws UnknownLineFormatException {
+	public final KnowledgeLine parseLine(int lineNumber, String line) throws UnknownLineFormatException {
 		KnowledgeLine result = this.tryHandle(line);
 		if (result != null) {
 			return result;
 		}
 		if (next != null) {
-			this.next.parseLine(line);
+			this.next.parseLine(lineNumber, line);
 		}
-		throw new UnknownLineFormatException(); 
+		throw new UnknownLineFormatException(lineNumber, line); 
 	}
 
 	public final void setNext(DbLineParsingChain next) {

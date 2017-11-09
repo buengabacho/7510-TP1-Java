@@ -20,7 +20,7 @@ public class RuleParser extends DbLineParsingChain {
 
 	@Override
 	public KnowledgeLine tryHandle(String line) {
-		Pattern p = Pattern.compile("^(.*)\\((.*)\\) *:- *(.*)\\.?$");
+		Pattern p = Pattern.compile("^(.*)\\((.*)\\) *:- *(.*)\\s*\\.?$");
 		Matcher m = p.matcher(line);
 		if (m.find()) {
 			String name = m.group(1).trim();

@@ -3,6 +3,8 @@ package ar.uba.fi.tdd.rulogic.model.builder;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import ar.uba.fi.tdd.rulogic.model.abstractions.KnowledgeBase;
 import ar.uba.fi.tdd.rulogic.model.abstractions.KnowledgeLine;
@@ -23,10 +25,13 @@ public class KnowledgeBaseBuilder {
 	public KnowledgeBase buildFromDBFile(String path) throws IOException, UnknownLineFormatException {
 		QueryParser queryParser = new FactAndQueryParser();
 		KnowledgeBase knowledgeBase = new ConcreteKnowledgeBase(queryParser);
-		String[] lines = (String[]) Files.lines(Paths.get(path)).toArray();
+		List<String> lines = new ArrayList<String>();
+		Files.lines(Paths.get(path)).forEach(lines::add);
+		int lineNumber = 1;
 		for (String line : lines) {
-			KnowledgeLine knowledgeLine = this.dbLineParsingChain.parseLine(line);
-			knowledgeBase.addKnowledgeLine(knowledgeLine);			
+			KnowledgeLine knowledgeLine = this.dbLineParsingChain.parseLine(lineNumber, line);
+			knowledgeBase.addKnowledgeLine(knowledgeLine);
+			lineNumber++;
 		}
 		return knowledgeBase;
 	}
